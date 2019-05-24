@@ -13,10 +13,15 @@ class Api::V1::ScoresController < ApplicationController
     end
   end
 
-  def update
-    byebug
-  end
+  # def update
+  #   byebug
+  # end
 
+  def destroy
+    Score.find(params[:id]).destroy
+    @scores = Score.all
+    render json: @scores
+  end
 
   private
 

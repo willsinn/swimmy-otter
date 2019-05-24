@@ -13,10 +13,15 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-  def update
-    byebug
-  end
+  # def update
+  #   byebug
+  # end
 
+  def destroy
+    User.find(params[:id]).destroy
+    @users = User.all
+    render json: @users
+  end
 
   private
 
